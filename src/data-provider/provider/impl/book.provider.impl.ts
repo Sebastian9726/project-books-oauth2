@@ -49,7 +49,8 @@ export class BookProvider implements IBookProvider {
     }
     async getBook(filter: any): Promise<any> {
         try {
-            const valor =await this.bookModel.find(filter)
+
+            const valor =await this.bookModel.find().limit(filter.limit).skip(filter.skip)
             return valor 
         } catch (e) {
             return e

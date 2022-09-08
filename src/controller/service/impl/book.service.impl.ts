@@ -26,7 +26,6 @@ export class ServiceBook implements IServiceBook {
                 })
 
         } else if (!data || !data.length) {
-
             Response
                 .status(HttpStatus.NOT_FOUND).send({
                     statusCode: HttpStatus.BAD_REQUEST,

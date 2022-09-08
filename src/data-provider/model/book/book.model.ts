@@ -25,17 +25,6 @@ export class BookModel extends Document {
     @Prop({ type: String}) 
     image_url:string
 
-    @Prop({ type: Boolean, default:true}) 
-    active_at:boolean
-
-    @Prop({ type: Date, default:null}) 
-    create_date:Date
-
-    @Prop({ type: Boolean,default:false}) 
-    delete_at:boolean
-
-    @Prop({ type: Date, default:new Date()}) 
-    delete_date:Date
 
 }
 

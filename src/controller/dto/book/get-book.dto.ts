@@ -1,17 +1,20 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmptyObject, ValidateNested, IsNotEmpty, IsString, IsNumber, IsArray, IsOptional } from "class-validator";
+import { Type } from 'class-transformer';
+import { IsNotEmptyObject, ValidateNested, IsNotEmpty, IsString, IsNumber, IsArray, IsOptional, IsInt } from "class-validator";
 
 
 
 export class GetBookDto {
 
     @IsOptional()
+    @Type(() => Number)
     @IsNumber()
-    @ApiProperty({ description: "author",type:String })
+    @ApiProperty({ description: "skip",type:Number })
     skip: number;
 
     @IsOptional()
+    @Type(() => Number)
     @IsNumber()
-    @ApiProperty({ description: "author",type:String })
+    @ApiProperty({ description: "limit",type:Number })
     limit: number;
 }
