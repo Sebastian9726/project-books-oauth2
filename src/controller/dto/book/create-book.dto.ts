@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsNotEmptyObject, ValidateNested, IsNotEmpty, IsString, IsNumber } from "class-validator";
+import { IsNotEmptyObject, ValidateNested, IsNotEmpty, IsString, IsNumber, IsArray, IsOptional } from "class-validator";
 
 
 
-export class BookDto {
+export class CreateBookDto {
       
       @IsNotEmpty()
       @IsString()
@@ -15,12 +15,12 @@ export class BookDto {
       @ApiProperty({ description: "title",type:String })
       title:string 
 
-      @IsNotEmpty()
+      @IsOptional()
       @IsString()
       @ApiProperty({ description: "genre",type:String })
       genre: string;
 
-      @IsNotEmpty()
+      @IsOptional()
       @IsString()
       @ApiProperty({ description: "description",type:String })
       description: string;
@@ -31,9 +31,9 @@ export class BookDto {
       author: string;
 
       @IsNotEmpty()
-      @IsString()
+      @IsArray()
       @ApiProperty({ description: "publisher",type:String })
-      publisher: string;
+      publisher: string[];
 
       @IsNotEmpty()
       @IsNumber()

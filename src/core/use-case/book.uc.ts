@@ -4,6 +4,10 @@ import { IBook } from '../entity/book/book.entity';
 @Injectable()
 export abstract class IBookUc{
 
-    abstract createBooks(book:IBook): any;
+    abstract createBooks(book:IBook): Promise<any>;;
+
+    abstract getBooks(data:any): Promise<any>;;
+
+    abstract updateBooks(data:any,book:any):Promise<any>;
 
 }
