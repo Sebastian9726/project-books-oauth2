@@ -10,4 +10,8 @@ export abstract class IBookProvider {
     abstract  createBook(book: IBook): Promise<any>;
 
     abstract  getBook(filter: any): Promise<any>;
+
+    abstract getBookById(id: string):Promise<any>;
+
+    abstract deleteBookById(id: string):Promise<any>;
 }

@@ -9,5 +9,9 @@ export abstract class IBookUc{
     abstract getBooks(data:any): Promise<any>;;
 
     abstract updateBooks(data:any,book:any):Promise<any>;
+    
+    abstract getBookById(id:string):Promise<any>;
+    
+    abstract deleteBookById(id:string):Promise<any>;
 
 }

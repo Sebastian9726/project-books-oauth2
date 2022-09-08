@@ -10,8 +10,11 @@ export abstract class IServiceBook {
 
   abstract createBooks(bookDto: CreateBookDto, response:ResponseExpress): Promise<any>;// TIPAR DEL TIPO
 
-  abstract getBooks(id:string, data:any, response:ResponseExpress): Promise<any>;// TIPAR DEL TIPO
+  abstract getBooks( data:any, response:ResponseExpress): Promise<any>;// TIPAR DEL TIPO
 
-  abstract updateBooks(id:string,data:GetBookDto,bookDto: UpdateBookDto, response:ResponseExpress): Promise<any>;// TIPAR DEL TIPO
+  abstract getBookById(_id:string, response:ResponseExpress): Promise<any>;// TIPAR DEL TIPO
+
+  abstract updateBooks(_id:string,data:GetBookDto,bookDto: UpdateBookDto, response:ResponseExpress): Promise<any>;// TIPAR DEL TIPO
   
+  abstract deleteBookById(_id:string, response:ResponseExpress): Promise<any>;// TIPAR DEL TIPO
 }

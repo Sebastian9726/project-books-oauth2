@@ -1,4 +1,4 @@
-import { Controller, Headers, Get, Param, ParseIntPipe, Put, Query, Post, Body, Res, UseFilters, } from '@nestjs/common';
+import { Controller, Headers, Get, Param, ParseIntPipe, Put, Query, Post, Body, Res, UseFilters, Delete, } from '@nestjs/common';
 import { ApiBody, ApiHeader, ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import generalConfig from 'src/common/configuration/general.config';
 import { Swagger } from 'src/common/utils/enums/message.enum';
@@ -24,30 +24,38 @@ export class BookController {
   }
 
   @Get()
-  @ApiResponse({ type: CreateBookDto })
   getBooks(
-    @Query() data:GetBookDto ,
+    @Query() data: GetBookDto,
     @Res() res: ResponseExpress) {
-    return this._serviceBook.getBooks(null, data,res) 
+    return this._serviceBook.getBooks( data, res)
   }
 
-  @Get(':id')
-  @ApiOperation({ operationId: 'consultAddressComplement', description: Swagger.GET_BOOKS })
+  @Get('/:id')
   getBookById(
-    @Param('id') id: string,
-    @Res() res: ResponseExpress) {
-    return `This action returns a #${id} cat`;
-
+    @Res() res: ResponseExpress,
+    @Query() data: GetBookDto,
+    @Param('id') id: string
+    ){
+      return this._serviceBook.getBookById(id, res)
   }
 
-  @Put(':id')
+  @Put('/:id')
   updateBook(
-    @Param('id') id: string,
-    @Query() data:GetBookDto,
+    @Param('id') _id: string,
+    @Query() data: GetBookDto,
     @Body() book: UpdateBookDto,
     @Res() res: ResponseExpress) {
-    return this._serviceBook.updateBooks(id,data,book,res)
+    return this._serviceBook.updateBooks(_id, data, book, res)
 
+  }
+
+  @Delete('/:id')
+  deleteById(
+    @Res() res: ResponseExpress,
+    @Query() data: GetBookDto,
+    @Param('id') id: string
+    ){
+      return this._serviceBook.deleteBookById(id, res)
   }
 
 }

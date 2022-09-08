@@ -40,3 +40,4 @@ export class BookModel extends Document {
 }
 
 export const BookSchema = SchemaFactory.createForClass(BookModel);
+BookSchema.index({ title: 1, author: 1 }, { unique: true });

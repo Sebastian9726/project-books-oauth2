@@ -6,12 +6,12 @@ import { IsNotEmptyObject, ValidateNested, IsNotEmpty, IsString, IsNumber, IsArr
 export class GetBookDto {
 
     @IsOptional()
-    @IsString()
+    @IsNumber()
     @ApiProperty({ description: "author",type:String })
     skip: number;
 
     @IsOptional()
-    @IsString()
+    @IsNumber()
     @ApiProperty({ description: "author",type:String })
     limit: number;
 }

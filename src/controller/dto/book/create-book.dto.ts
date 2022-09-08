@@ -5,10 +5,6 @@ import { IsNotEmptyObject, ValidateNested, IsNotEmpty, IsString, IsNumber, IsArr
 
 export class CreateBookDto {
       
-      @IsNotEmpty()
-      @IsString()
-      @ApiProperty({ description: "id", type:String })
-      id:string 
 
       @IsNotEmpty()
       @IsString()
