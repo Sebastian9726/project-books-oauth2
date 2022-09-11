@@ -1,6 +1,4 @@
 
-//import { EStatusTracingGeneral } from "../utils/enums/tracing.enum";
-
 export interface IBook {
     title: string; 
     genre: string;
