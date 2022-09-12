@@ -3,7 +3,7 @@ import { IsNotEmptyObject, ValidateNested, IsNotEmpty, IsString, IsNumber, IsArr
 
 
 
-export class CreateUserDto {
+export class LoginUserDto {
       
       @IsNotEmpty()
       @IsString()
@@ -12,17 +12,7 @@ export class CreateUserDto {
 
       @IsOptional()
       @IsString()
-      @ApiProperty({ description: "genre",type:String })
-      genre: string;
-
-
-      @IsNotEmpty()
-      @IsString()
-      @ApiProperty({ description: "user",type:String })
-      username: string;
-
-      @IsNotEmpty()
-      @IsString()
       @ApiProperty({ description: "password",type:String })
       password: string;
+      
 }

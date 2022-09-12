@@ -1,9 +1,8 @@
 
-export interface IBook {
+export interface IUser {
     name: string;
     genre: string;
-    typeUser: string,
     user: string,
     password:string,
-    
+    token:any    
 }

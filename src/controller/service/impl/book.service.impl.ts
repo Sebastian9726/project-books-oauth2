@@ -11,8 +11,6 @@ import { EBook } from 'src/common/utils/enums/book.enum';
 
 @Injectable()
 export class ServiceBook implements IServiceBook {
-
-
     constructor(
         public readonly _bookUc: IBookUc
     ) {

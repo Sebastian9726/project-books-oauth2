@@ -1,4 +1,4 @@
-import { Controller, Headers, Get, Param, ParseIntPipe, Put, Query, Post, Body, Res, UseFilters, Delete, } from '@nestjs/common';
+import { Controller, Headers, Get, Param, ParseIntPipe, Put, Query, Post, Body, Res, UseFilters, Delete, UseGuards, } from '@nestjs/common';
 import { ApiBody, ApiHeader, ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import generalConfig from 'src/common/configuration/general.config';
 import { Swagger } from 'src/common/utils/enums/message.enum';
@@ -7,6 +7,8 @@ import { Request as RequestExpress, Response as ResponseExpress } from 'express'
 import { GetBookDto } from '../dto/book/get-book.dto';
 import { CreateBookDto } from '../dto/book/create-book.dto';
 import { UpdateBookDto } from '../dto/book/update-book.dto';
+import { LocalAuthGuard } from '../guards/local-auth.guard';
+import { JwtAuthGuard } from '../guards/jw-auth.guard';
 
 
 
@@ -17,7 +19,7 @@ export class BookController {
     private _serviceBook: IServiceBook,
   ) { }
 
-
+  @UseGuards(JwtAuthGuard)
   @Post()
   createBooks(@Body() book: CreateBookDto, @Res() res: ResponseExpress) {
     return this._serviceBook.createBooks(book, res)
@@ -38,7 +40,8 @@ export class BookController {
     ){
       return this._serviceBook.getBookById(id, res)
   }
-
+  
+  @UseGuards(JwtAuthGuard)
   @Put('/:id')
   updateBook(
     @Param('id') _id: string,
@@ -49,6 +52,7 @@ export class BookController {
 
   }
 
+  @UseGuards(LocalAuthGuard)
   @Delete('/:id')
   deleteById(
     @Res() res: ResponseExpress,
