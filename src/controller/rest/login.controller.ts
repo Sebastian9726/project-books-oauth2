@@ -33,4 +33,5 @@ export class loginController {
       const token = await this.authService.token(request, response);
       response.status(200).json(token);
   }
+
 }

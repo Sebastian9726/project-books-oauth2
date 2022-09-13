@@ -6,8 +6,8 @@ import { Request as RequestExpress, Response as ResponseExpress } from 'express'
 import { IServiceAuthorization } from '../authorization.service';
 
 import * as OAuth2Server from 'oauth2-server';
-import oauth2Model from 'src/controller/model-oauth/oauth2.model';
 import { IUserUc } from 'src/core/use-case/user.uc';
+import oauth2Model from 'src/controller/model-oauth/oauth2.model';
 
 
 const oauth = new OAuth2Server({
@@ -21,6 +21,8 @@ export class AuthorizationService implements IServiceAuthorization {
     public readonly _userUc: IUserUc,
     private usersService: UsersService,
     private jwtService: JwtService) { }
+
+
 
   async validateUser(username: string, pass: string): Promise<any> {
     const user = await this.usersService.findOne(username);
@@ -59,7 +61,7 @@ export class AuthorizationService implements IServiceAuthorization {
       );
     }
     catch (e) {
-
+      console.log(e)
     }
 
   }

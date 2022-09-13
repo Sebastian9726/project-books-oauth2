@@ -9,8 +9,10 @@ export abstract class IUserProvider {
 
     abstract createUser(user: IUser): Promise<any>;
 
-    abstract getUser(id: string): Promise<any>;
+    abstract getUser(username: string): Promise<any>;
 
     abstract deleteUser(id: string): Promise<any>;
+
+    abstract validateTokenOauth2(filter: any): Promise<any>;
 
 }

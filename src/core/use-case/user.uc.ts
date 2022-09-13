@@ -6,10 +6,6 @@ import { IBook } from '../entity/book/book.entity';
 @Injectable()
 export abstract class IUserUc{
 
-    abstract updateUser(filter: any, user:UpdatetUserDto): Promise<any>;
-
     abstract createUser(user: any): Promise<any>;
-
-    abstract getUser(filter: any): Promise<any>;
 
 }

@@ -52,7 +52,7 @@ export class BookController {
 
   }
 
-  @UseGuards(LocalAuthGuard)
+  @UseGuards(JwtAuthGuard)
   @Delete('/:id')
   deleteById(
     @Res() res: ResponseExpress,

@@ -23,7 +23,8 @@ export class ServiceBook implements IServiceBook {
                     error: data.message
                 })
 
-        } else if (!data || !data.length) {
+        } else if (!data) {
+
             Response
                 .status(HttpStatus.NOT_FOUND).send({
                     statusCode: HttpStatus.BAD_REQUEST,
@@ -31,6 +32,7 @@ export class ServiceBook implements IServiceBook {
                 })
         }
         else {
+
             Response
                 .status(HttpStatus.OK)
                 .send({

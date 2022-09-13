@@ -38,15 +38,7 @@ export class BookUcimpl implements IBookUc {
         return UPDATE_BOOK
     }
     async getBooks(data: any): Promise<any> {
-        var dataEdit
-        if (data.id) {
-            dataEdit = {
-                _id: data._id
-            }
-
-        }
-        dataEdit = data
-        const GET_BOOK = await this._serviceBookProvider.getBook(dataEdit)
+        const GET_BOOK = await this._serviceBookProvider.getBook(data)
         if (!GET_BOOK) {
             return new Error('Error en base de datos')
         }

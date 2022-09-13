@@ -19,12 +19,12 @@ import { IUserProvider } from './provider/user.provider';
       {
         name: BookModel.name,
         schema: BookSchema,
-        collection: 'book',
+        collection: 'books',
       },
       {
         name: UserModel.name,
         schema: UserSchema,
-        collection: 'user',
+        collection: 'users',
       },
     ]),
 

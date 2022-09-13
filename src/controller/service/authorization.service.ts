@@ -13,4 +13,5 @@ export abstract class IServiceAuthorization {
   abstract register(CreateUserDto: CreateUserDto, response:ResponseExpress): Promise<any>;
 
   abstract token(request:any, response:any): Promise<any>;
+
  }

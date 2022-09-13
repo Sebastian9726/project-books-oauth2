@@ -18,10 +18,10 @@ export class UserModel extends Document {
     password:string
 
 
-    @Prop({ type: Object}) 
+    @Prop({ type: Object, default: null}) 
     tokenOauth2:string
 
 }
 
 export const UserSchema = SchemaFactory.createForClass(UserModel);
-UserSchema.index({ username: 1, password: 1 }, { unique: true });
+UserSchema.index({ username: 1 }, { unique: true });

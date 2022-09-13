@@ -1,4 +1,4 @@
 export default {
-    database: 'mongodb://localhost:27017/DBBook',
+    database: 'mongodb+srv://admin:preuba12@cluster0.lte4s.mongodb.net/?retryWrites=true&w=majority',
   
   };
