@@ -1,6 +1,6 @@
 export default {
-    port: 8000,
+    port: process.env.PORT,
     book: 'book',
-    secret: 'secretKey',
-    bcrypt_salt_round : 10
+    secret: process.env.SECRET,
+    bcrypt_salt_round : process.env.BCRYPT_SALT_ROUND
 };
